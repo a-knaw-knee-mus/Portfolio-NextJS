@@ -17,6 +17,7 @@ export default function Home({ fullName, firstName, imageUrl, resumeUrl, bio }) 
 }
 
 export async function getServerSideProps(context) {
+  console.log("hello")
   const query =
     encodeURIComponent(`*[_type == "author" && slug.current == "muhammad-mehdi-ali"]{
     fullName,
