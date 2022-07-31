@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import BlockContent from '@sanity/block-content-to-react'
 import Image from "next/image";
+import { server } from "../config";
 
 export default function Home({ fullName, firstName, imageUrl, resumeUrl, bio }) {
   return (
@@ -16,22 +17,10 @@ export default function Home({ fullName, firstName, imageUrl, resumeUrl, bio }) 
   );
 }
 
-export async function getServerSideProps(context) {
-  console.log("hello")
-  const query =
-    encodeURIComponent(`*[_type == "author" && slug.current == "muhammad-mehdi-ali"]{
-    fullName,
-    firstName,
-    bio,
-    "imageUrl": image.asset->url, 
-    bio,
-    "resumeUrl": resume.asset->url,    
-  }`);
-  const url = `https://219pd81c.api.sanity.io/v1/data/query/production?query=${query}`;
-  const result = await fetch(url).then((res) => res.json());
-  const post = result.result[0];
+export async function getStaticProps(context) {
+  const res = await fetch(`${server}/api/home`).then(res => res.json())
 
-  if (!post) {
+  if (!res) {
     return {
       notFound: true,
     };
@@ -39,7 +28,8 @@ export async function getServerSideProps(context) {
   
   return {
     props: {
-      ...post,
+      ...res.homecontent,
     },
+    revalidate: 10,
   };
 }

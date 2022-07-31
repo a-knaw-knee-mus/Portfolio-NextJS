@@ -1,6 +1,7 @@
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import ProjectCard from "../../components/ProjectCard";
+import { server } from "../../config";
 
 const components = {
   listItem: {
@@ -25,13 +26,19 @@ export default function Project({ slug, title, demo, github, imageUrl, body }) {
       <div>
         <PortableText value={body} components={components} />
       </div>
-      {/* <ProjectCard title={title} demo={demo} github={github} imageUrl={imageUrl} body={body} /> */}
     </>
   );
 }
 
-export async function getServerSideProps(context) {
-  const slug = context.query.slug;
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: 'blocking',
+  }
+}
+
+export async function getStaticProps(context) {
+  const slug = context.params.slug;
 
   if (!slug) {
     return {
@@ -39,19 +46,11 @@ export async function getServerSideProps(context) {
     };
   }
 
-  const query =
-    encodeURIComponent(`*[_type == "post" && slug.current == "${slug}"]{
-        title,
-        demo,
-        github,
-        "imageUrl": mainImage.asset->url,
-        body,
-    }`);
-  const url = `https://219pd81c.api.sanity.io/v1/data/query/production?query=${query}`;
-  const result = await fetch(url).then((res) => res.json());
-  const post = result.result[0];
+  const res = await fetch(`${server}/api/projects`, {
+    headers: {slug: slug}
+  }).then(res => res.json())
 
-  if (!post) {
+  if (!res) {
     return {
       notFound: true,
     };
@@ -59,7 +58,8 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      ...post,
+      ...res.posts[0],
     },
+    revalidate: 10,
   };
 }
