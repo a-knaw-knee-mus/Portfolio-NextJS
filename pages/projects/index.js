@@ -3,6 +3,7 @@ import useRouter from "next/router";
 import { server } from "../../config";
 import getHomeContent from "../../util/getHomeContent";
 import getProjects from "../../util/getProjects";
+import Image from "next/image";
 
 const components = {
   // list: {
@@ -24,17 +25,26 @@ export default function Projects({ posts }) {
           return (
             <div key={post._id}>
               <h1>{post.slug}</h1>
-              <h1 onClick={() => router.push(`/projects/${post.slug}`)}>{post.title}</h1>
+              <h1 onClick={() => router.push(`/projects/${post.slug}`)}>
+                {post.title}
+              </h1>
               <h2>
                 <a href={post.demo}>{post.demo}</a>
               </h2>
               <h2>
                 <a href={post.github}>{post.github}</a>
               </h2>
-              <img
+              {/* <img
                 className="h-70 aspect-auto"
                 src={post.imageUrl}
                 alt="project preview"
+              /> */}
+              <Image
+                className="h-70 aspect-auto"
+                src={post.imageUrl}
+                alt="project preview"
+                height={338}
+                width={600}
               />
               <div>
                 <PortableText value={post.body} components={components} />
@@ -47,7 +57,7 @@ export default function Projects({ posts }) {
 }
 
 export async function getStaticProps() {
-  const res = await getProjects()
+  const res = await getProjects();
 
   if (!res) {
     return {
