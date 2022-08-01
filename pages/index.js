@@ -1,6 +1,7 @@
 import BlockContent from '@sanity/block-content-to-react'
 import Image from "next/image";
 import { server } from "../config";
+import getHomeContent from '../util/getHomeContent';
 
 export default function Home({ fullName, firstName, imageUrl, resumeUrl, bio }) {
   return (
@@ -17,7 +18,7 @@ export default function Home({ fullName, firstName, imageUrl, resumeUrl, bio }) 
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${server}/api/home`).then(res => res.json())
+  const res = await getHomeContent()
 
   if (!res) {
     return {
@@ -27,7 +28,7 @@ export async function getStaticProps() {
   
   return {
     props: {
-      ...res.homecontent,
+      ...res,
     },
     revalidate: 10,
   };

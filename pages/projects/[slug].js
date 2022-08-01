@@ -1,6 +1,7 @@
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { server } from "../../config";
+import getProjects from "../../util/getProjects";
 
 const components = {
   listItem: {
@@ -45,9 +46,7 @@ export async function getStaticProps(context) {
     };
   }
 
-  const res = await fetch(`${server}/api/projects`, {
-    headers: {slug: slug}
-  }).then(res => res.json())
+  const res = await getProjects(slug)
 
   if (!res) {
     return {
@@ -57,7 +56,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      ...res.posts[0],
+      ...res[0],
     },
     revalidate: 10,
   };

@@ -1,6 +1,8 @@
 import { PortableText } from "@portabletext/react";
 import useRouter from "next/router";
 import { server } from "../../config";
+import getHomeContent from "../../util/getHomeContent";
+import getProjects from "../../util/getProjects";
 
 const components = {
   // list: {
@@ -45,7 +47,7 @@ export default function Projects({ posts }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${server}/api/projects`).then((res) => res.json());
+  const res = await getProjects()
 
   if (!res) {
     return {
@@ -55,7 +57,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts: res.posts,
+      posts: res,
     },
     revalidate: 10,
   };
