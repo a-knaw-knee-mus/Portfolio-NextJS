@@ -44,7 +44,7 @@ export default function Projects({ posts }) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const res = await fetch(`${server}/api/projects`).then((res) => res.json());
 
   if (!res) {

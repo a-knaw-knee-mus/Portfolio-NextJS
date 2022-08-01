@@ -1,6 +1,5 @@
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
-import ProjectCard from "../../components/ProjectCard";
 import { server } from "../../config";
 
 const components = {
