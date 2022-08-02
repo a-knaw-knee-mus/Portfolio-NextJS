@@ -11,7 +11,7 @@ const components = {
   },
 };
 
-export default function Project({ slug, title, demo, github, imageUrl, body }) {
+export default function Project({ slug, title, demo, github, imageUrl, body, summary }) {
   return (
     <>
       <h1>{slug}</h1>

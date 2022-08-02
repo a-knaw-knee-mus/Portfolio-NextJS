@@ -8,6 +8,8 @@ export default async function getProjects(slug) {
         github,
         "imageUrl": mainImage.asset->url,
         body,
+        indexNumber,
+        summary,
     }`);
 
     const url = `https://219pd81c.api.sanity.io/v1/data/query/production?query=${query}`;

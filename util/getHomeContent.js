@@ -4,6 +4,7 @@ export default async function getHomeContent() {
     fullName,
     firstName,
     bio,
+    image,
     "imageUrl": image.asset->url, 
     bio,
     "resumeUrl": resume.asset->url,    

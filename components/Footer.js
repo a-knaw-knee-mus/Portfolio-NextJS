@@ -12,7 +12,7 @@ export default function Footer() {
 
   return (
     <>
-      <div className="max-w-xl m-auto flex justify-around">
+      <div className="max-w-xl m-auto flex justify-around pt-5 pb-8">
         <a
           target="_blank"
           href="https://github.com/a-knaw-knee-mus"
@@ -32,7 +32,15 @@ export default function Footer() {
         <a href="mailto:m30ali@ryerson.ca" data-tip="Email">
           <Icon icon="ic:baseline-email" width="40" />
         </a>
-      {isMounted && <ReactTooltip effect="solid" offset={{ top: -70 }} />}
+        {isMounted && (
+          <ReactTooltip
+            textColor="black"
+            backgroundColor="transparent"
+            place="bottom"
+            effect="solid"
+            offset={{ top: 15 }}
+          />
+        )}
       </div>
     </>
   );
