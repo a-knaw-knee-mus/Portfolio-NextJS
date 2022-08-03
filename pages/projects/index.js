@@ -34,7 +34,7 @@ export default function Projects({ posts }) {
                   <div className="cursor-pointer group relative">
                     <h1
                       onClick={() => router.push(`/projects/${post.slug}`)}
-                      className="transition-all font-bold absolute z-40 p-3 bg-slate-50 bg-opacity-50 rounded-br-md text-2xl group-hover:text-3xl group-hover:bg-opacity-100"
+                      className="text-lg md:text-2xl transition-all font-bold absolute z-40 p-3 bg-slate-50 bg-opacity-50 rounded-br-md md:group-hover:text-3xl md:group-hover:bg-opacity-100"
                     >
                       {post.title}
                     </h1>
@@ -46,14 +46,14 @@ export default function Projects({ posts }) {
                       height={324}
                       width={576}
                     />
-                    <div className="transition-all flex absolute top-0 right-0 bg-slate-50 bg-opacity-50 rounded-bl-md group-hover:bg-opacity-100">
+                    <div className="transition-all flex absolute top-0 right-0 bg-slate-50 bg-opacity-50 rounded-bl-md md:group-hover:bg-opacity-100">
                       <a
                         target="_blank"
                         href={post.demo}
                         rel="noopener noreferrer"
                         className="p-3 z-40"
                       >
-                        <Icon icon="akar-icons:link-chain" width="30" />
+                        <Icon className="transition-all md:hover:scale-110" icon="eva:external-link-fill" width="30" />
                       </a>
                       <a
                         target="_blank"
@@ -61,32 +61,11 @@ export default function Projects({ posts }) {
                         rel="noopener noreferrer"
                         className="p-3 z-40"
                       >
-                        <Icon icon="akar-icons:github-fill" width="30" />
+                        <Icon className="transition-all md:hover:scale-110" icon="akar-icons:github-fill" width="30" />
                       </a>
                     </div>
                   </div>
                   <div className="max-w-xl">
-                    {/* <div className="flex">
-                      <a
-                        target="_blank"
-                        href={post.demo}
-                        rel="noopener noreferrer"
-                        className="px-5 pt-2"
-                      >
-                        <Icon icon="akar-icons:link-chain" width="30" />
-                      </a>
-                      <a
-                        target="_blank"
-                        href={post.github}
-                        rel="noopener noreferrer"
-                        className="px-5 pt-2"
-                      >
-                        <Icon icon="akar-icons:github-fill" width="30" />
-                      </a>
-                    </div> */}
-                    {/* <div>
-                      <PortableText value={post.body} components={components} />
-                    </div> */}
                     <Accordion variant="filled">
                       <Accordion.Item value={post.summary}>
                         <Accordion.Control>{post.summary}</Accordion.Control>
