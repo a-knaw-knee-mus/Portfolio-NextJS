@@ -10,6 +10,7 @@ export default async function getProjects(slug) {
         body,
         indexNumber,
         summary,
+        mainImage
     }`);
 
     const url = `https://219pd81c.api.sanity.io/v1/data/query/production?query=${query}`;

@@ -4,11 +4,9 @@ import getProjects from "../../util/getProjects";
 import Image from "next/image";
 import { Accordion } from "@mantine/core";
 import { Icon } from "@iconify/react";
+import getSanityImage from "../../util/getSanityImage";
 
 const components = {
-  // list: {
-  //   bullet: ({children}) => <ul style={{ listStyleType: "upper-roman" }}>{children}</ul>,
-  // },
   listItem: {
     bullet: ({ children }) => <li>• {children}</li>,
   },
@@ -19,7 +17,7 @@ export default function Projects({ posts }) {
 
   return (
     <>
-      <div className="sm:grid lg:grid-cols-2 max-w-7xl mx-auto gap-5 items-start px-5">
+      <div className="grid lg:grid-cols-2 max-w-7xl mx-auto gap-5 items-start px-5">
         {posts
           .sort((a, b) => {
             if (a.indexNumber > b.indexNumber) return 1;
@@ -33,21 +31,21 @@ export default function Projects({ posts }) {
                   <h1
                     onClick={() => router.push(`/projects/${post.slug}`)}
                     className="text-lg font-bold absolute transition-all z-40 p-3 bg-slate-50 bg-opacity-50 
-                                rounded-br-md md:text-2xl md:group-hover:text-3xl md:group-hover:bg-opacity-100"
+                                rounded-br-md rounded-tl-md md:text-2xl md:group-hover:text-3xl md:group-hover:bg-opacity-100"
                   >
                     {post.title}
                   </h1>
                   <Image
                     className="rounded-md"
                     onClick={() => router.push(`/projects/${post.slug}`)}
-                    src={post.imageUrl}
+                    src={getSanityImage(post.mainImage).url()}
                     alt="project preview"
                     height={324}
                     width={576}
                   />
                   <div
                     className="transition-all flex absolute top-0 right-0 bg-slate-50 bg-opacity-50 
-                                    rounded-bl-md md:group-hover:bg-opacity-100"
+                                    rounded-bl-md rounded-tr-md md:group-hover:bg-opacity-100"
                   >
                     <a
                       target="_blank"
@@ -76,8 +74,10 @@ export default function Projects({ posts }) {
                   </div>
                 </div>
                 <div className="max-w-xl">
-                  <Accordion variant="filled">
-                    <Accordion.Item value={post.summary}>
+                  <Accordion
+                    variant="filled"
+                  >
+                    <Accordion.Item value={post.summary} className="mt-0">
                       <Accordion.Control>{post.summary}</Accordion.Control>
                       <Accordion.Panel>
                         <PortableText

@@ -1,10 +1,10 @@
 import BlockContent from "@sanity/block-content-to-react";
 import Image from "next/image";
 import getHomeContent from "../util/getHomeContent";
-import imageUrlBuilder from "@sanity/image-url";
 import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
 import ReactTooltip from "react-tooltip";
+import getSanityImage from "../util/getSanityImage";
 
 export default function Home({
   fullName,
@@ -20,12 +20,6 @@ export default function Home({
     setIsMounted(true);
   }, []);
 
-  const builder = imageUrlBuilder({
-    projectId: "219pd81c",
-    dataset: "production",
-  });
-  const urlFor = (source) => builder.image(source);
-
   return (
     <main className="text-center">
       <h1>Homepage</h1>
@@ -33,7 +27,7 @@ export default function Home({
       {/* <Image className="w-40" src={imageUrl} alt="project preview" height={100} width={100}/> */}
       <Image
         className="w-40"
-        src={urlFor(image).width(100).height(150).url()}
+        src={getSanityImage(image).width(100).height(150).url()}
         alt="project preview"
         height={150}
         width={100}

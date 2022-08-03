@@ -2,12 +2,11 @@ import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import getProjects from "../../util/getProjects";
 import { Icon } from "@iconify/react";
+import getSanityImage from "../../util/getSanityImage";
 
 const components = {
   listItem: {
-    bullet: ({ children }) => (
-      <li className="text-xl">• {children}</li>
-    ),
+    bullet: ({ children }) => <li className="md:text-lg">• {children}</li>,
   },
 };
 
@@ -18,13 +17,14 @@ export default function Project({
   imageUrl,
   body,
   summary,
+  mainImage,
 }) {
   return (
     <>
       <div className="m-auto text-center p-5">
         <h1 className="font-semibold text-3xl">{title}</h1>
         <div
-          className="transition-all flex bg-slate-50 bg-opacity-50 
+          className="transition-all flex bg-opacity-50 
                     rounded-bl-md md:group-hover:bg-opacity-100 justify-center"
         >
           <a
@@ -52,15 +52,17 @@ export default function Project({
             />
           </a>
         </div>
-        <Image
-          className="rounded-md"
-          src={imageUrl}
-          alt="project preview"
-          height={513}
-          width={912}
-        />
-        <div className="md:w-4/5 lg:w-3/5 m-auto text-left">
-          <p className="font-semibold text-2xl my-2">{summary}</p>
+        <div className="drop-shadow-xl">
+          <Image
+            className="rounded-md"
+            src={getSanityImage(mainImage).url()}
+            alt="project preview"
+            height={513}
+            width={912}
+          />
+        </div>
+        <div className="max-w-[912px] m-auto text-left shadow-xl p-4 rounded-md border-[1px]">
+          <p className="font-semibold text-lg md:text-2xl my-2">{summary}</p>
           <PortableText value={body} components={components} />
         </div>
       </div>
