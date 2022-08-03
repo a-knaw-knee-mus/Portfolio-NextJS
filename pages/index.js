@@ -27,7 +27,7 @@ export default function Home({
   const urlFor = (source) => builder.image(source);
 
   return (
-    <main className="m-auto text-center">
+    <main className="text-center">
       <h1>Homepage</h1>
       <h1>{fullName}</h1>
       {/* <Image className="w-40" src={imageUrl} alt="project preview" height={100} width={100}/> */}

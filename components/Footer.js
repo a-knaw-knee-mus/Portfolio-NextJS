@@ -12,7 +12,7 @@ export default function Footer() {
 
   return (
     <>
-      <div className="max-w-xl m-auto flex justify-around pt-5 pb-8">
+      <div className="max-w-sm m-auto flex justify-around pt-5 pb-8">
         <a
           target="_blank"
           href="https://github.com/a-knaw-knee-mus"
