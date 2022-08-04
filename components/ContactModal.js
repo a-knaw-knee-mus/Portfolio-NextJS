@@ -29,6 +29,9 @@ export default function ContactModal({
       title: "Thank you for your message",
       message: "I'll respond as soon as possible!",
     });
+    setName("")
+    setSubject("")
+    setMessage("")
     setShowContactModal(false);
   }
 
