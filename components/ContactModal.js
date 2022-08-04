@@ -1,23 +1,42 @@
 import { Button, Modal, Textarea, TextInput } from "@mantine/core";
-import { useState } from "react";
+import { useState, useReducer } from "react";
 import emailjs from "emailjs-com";
 import { showNotification } from "@mantine/notifications";
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "CLOSE_MODAL":
+      state.setShowContactModal(false);
+      return { ...state, name: "", subject: "", message: "" };
+    case "UPDATE_NAME":
+      return { ...state, name: action.payload };
+    case "UPDATE_SUBJECT":
+      return { ...state, subject: action.payload };
+    case "UPDATE_MESSAGE":
+      return { ...state, message: action.payload };
+    default:
+      return state;
+  }
+};
 
 export default function ContactModal({
   showContactModal,
   setShowContactModal,
 }) {
-  const [name, setName] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
+  const [form, dispatch] = useReducer(reducer, {
+    name: "",
+    subject: "",
+    message: "",
+    setShowContactModal: setShowContactModal,
+  });
 
   function sendEmail(e) {
     e.preventDefault();
 
     const templateParams = {
-      name: name,
-      subject: subject,
-      message: message,
+      name: form.name,
+      subject: form.subject,
+      message: form.message,
     };
     emailjs.send(
       "service_kacxihj",
@@ -29,28 +48,37 @@ export default function ContactModal({
       title: "Thank you for your message",
       message: "I'll respond as soon as possible!",
     });
-    setName("")
-    setSubject("")
-    setMessage("")
-    setShowContactModal(false);
+    dispatch({ type: "CLOSE_MODAL" });
   }
 
   return (
     <Modal
       opened={showContactModal}
-      onClose={() => setShowContactModal(false)}
+      onClose={() => dispatch({ type: "CLOSE_MODAL" })}
       title="Contact Me"
       overlayOpacity={0.5}
       overlayBlur={3}
     >
       <TextInput
-        onChange={(e) => setName(e.target.value)}
+        value={form.name}
+        onChange={(e) =>
+          dispatch({ type: "UPDATE_NAME", payload: e.target.value })
+        }
         data-autofocus
         label="Name"
       />
-      <TextInput onChange={(e) => setSubject(e.target.value)} label="Subject" />
+      <TextInput
+        value={form.subject}
+        onChange={(e) =>
+          dispatch({ type: "UPDATE_SUBJECT", payload: e.target.value })
+        }
+        label="Subject"
+      />
       <Textarea
-        onChange={(e) => setMessage(e.target.value)}
+        value={form.message}
+        onChange={(e) =>
+          dispatch({ type: "UPDATE_MESSAGE", payload: e.target.value })
+        }
         label="Subject"
         placeholder="Include your email if you would like a reply"
         autosize
@@ -59,7 +87,9 @@ export default function ContactModal({
       <div className="flex">
         <Button
           className="mt-5 border-[#228be6] ml-auto"
-          disabled={name === "" || message === "" || subject === ""}
+          disabled={
+            form.name === "" || form.message === "" || form.subject === ""
+          }
           variant="light"
           onClick={sendEmail}
         >
