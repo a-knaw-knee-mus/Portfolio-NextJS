@@ -6,7 +6,7 @@ import getSanityImage from "../../util/getSanityImage";
 
 const components = {
   listItem: {
-    bullet: ({ children }) => <li className="md:text-lg">• {children}</li>,
+    bullet: ({ children }) => <li className="md:text-lg transition-all">• {children}</li>,
   },
 };
 
@@ -52,17 +52,17 @@ export default function Project({
             />
           </a>
         </div>
-        <div className="drop-shadow-xl">
+        <div className="flex justify-center drop-shadow-md">
           <Image
-            className="rounded-md"
+            className="rounded-t-md"
             src={getSanityImage(mainImage).url()}
             alt="project preview"
             height={513}
             width={912}
           />
         </div>
-        <div className="max-w-[912px] m-auto text-left shadow-xl p-4 rounded-md border-[1px]">
-          <p className="font-semibold text-lg md:text-2xl my-2">{summary}</p>
+        <div className="max-w-[912px] m-auto text-left shadow-xl p-4 rounded-b-md">
+          <p className="transition-all font-semibold text-lg md:text-2xl my-2">{summary}</p>
           <PortableText value={body} components={components} />
         </div>
       </div>

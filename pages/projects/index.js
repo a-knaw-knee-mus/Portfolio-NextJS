@@ -8,7 +8,7 @@ import getSanityImage from "../../util/getSanityImage";
 
 const components = {
   listItem: {
-    bullet: ({ children }) => <li>• {children}</li>,
+    bullet: ({ children }) => <li className="text-sm sm:text-base transition-all">• {children}</li>,
   },
 };
 
@@ -31,7 +31,7 @@ export default function Projects({ posts }) {
                   <h1
                     onClick={() => router.push(`/projects/${post.slug}`)}
                     className="text-lg font-bold absolute transition-all z-40 p-3 bg-slate-50 bg-opacity-50 
-                                rounded-br-md rounded-tl-sm md:text-2xl md:group-hover:text-3xl md:group-hover:bg-opacity-100"
+                                rounded-br-md rounded-tl-sm sm:text-2xl sm:group-hover:text-3xl sm:group-hover:bg-opacity-100"
                   >
                     {post.title}
                   </h1>
@@ -90,7 +90,7 @@ export default function Projects({ posts }) {
                     }}
                   >
                     <Accordion.Item value={post.summary} className="mt-0">
-                      <Accordion.Control>{post.summary}</Accordion.Control>
+                      <Accordion.Control className="text-sm sm:text-base transition-all">{post.summary}</Accordion.Control>
                       <Accordion.Panel>
                         <PortableText
                           value={post.body}
