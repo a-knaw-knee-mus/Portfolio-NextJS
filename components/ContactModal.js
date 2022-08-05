@@ -1,12 +1,11 @@
 import { Button, Modal, Textarea, TextInput } from "@mantine/core";
-import { useState, useReducer } from "react";
-import emailjs from "emailjs-com";
+import { useReducer } from "react";
+import emailjs from "@emailjs/browser"
 import { showNotification } from "@mantine/notifications";
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "CLOSE_MODAL":
-      state.setShowContactModal(false);
       return { ...state, name: "", subject: "", message: "" };
     case "UPDATE_NAME":
       return { ...state, name: action.payload };
@@ -27,7 +26,6 @@ export default function ContactModal({
     name: "",
     subject: "",
     message: "",
-    setShowContactModal: setShowContactModal,
   });
 
   function sendEmail(e) {
@@ -43,18 +41,33 @@ export default function ContactModal({
       "template_a2edhn9",
       templateParams,
       process.env.NEXT_PUBLIC_EMAILJS_USERID
+    )
+    .then(
+      (res) => {
+        showNotification({
+          title: "Thank you for your message",
+          message: "I'll respond as soon as possible!",
+        });
+      },
+      (error) => {
+        showNotification({
+          color: "red",
+          title: "Internal Error",
+          message: "Sorry, messages can't be sent at the moment :(",
+        })
+      }
     );
-    showNotification({
-      title: "Thank you for your message",
-      message: "I'll respond as soon as possible!",
-    });
     dispatch({ type: "CLOSE_MODAL" });
+    setShowContactModal(false)
   }
 
   return (
     <Modal
       opened={showContactModal}
-      onClose={() => dispatch({ type: "CLOSE_MODAL" })}
+      onClose={() => {
+        dispatch({ type: "CLOSE_MODAL" })
+        setShowContactModal(false)
+      }}
       title="Contact Me"
       overlayOpacity={0.5}
       overlayBlur={3}

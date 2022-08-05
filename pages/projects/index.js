@@ -54,7 +54,7 @@ export default function Projects({ posts }) {
                       className="p-3 z-40"
                     >
                       <Icon
-                        className="transition-all md:hover:scale-[1.15]"
+                        className="transition-all sm:hover:scale-[1.15]"
                         icon="eva:external-link-fill"
                         width="30"
                       />
@@ -66,7 +66,7 @@ export default function Projects({ posts }) {
                       className="p-3 z-40"
                     >
                       <Icon
-                        className="transition-all md:hover:scale-[1.15]"
+                        className="transition-all sm:hover:scale-[1.15]"
                         icon="akar-icons:github-fill"
                         width="30"
                       />
