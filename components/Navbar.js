@@ -8,19 +8,20 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="max-w-xl m-auto mt-3 flex justify-around text-2xl border-b-2 border-black">
-        <h1 className="cursor-pointer" onClick={() => router.push("/")}>
+      <nav className="max-w-2xl px- m-auto mt-3 text-xl sm:text-2xl font-overpass">
+        <div className="mx-4 flex justify-between border-b">
+        <h1 className="cursor-pointer font-extrabold sm:hover:scale-[1.15] transition-all" onClick={() => router.push("/")}>
           Muhammad
         </h1>
-        <ul className="flex">
+        <ul className="flex font-semibold">
           <li
-            className="cursor-pointer mr-4 hover:animate-pulse"
+            className="cursor-pointer mr-4 sm:hover:scale-[1.15] transition-all"
             onClick={() => router.push("/projects")}
           >
             Projects
           </li>
           <li
-            className="cursor-pointer hover:animate-pulse"
+            className="cursor-pointer sm:hover:scale-[1.15] transition-all"
             onClick={() => {
               setShowContactModal(true);
             }}
@@ -28,6 +29,7 @@ export default function Navbar() {
             Contact
           </li>
         </ul>
+        </div>
       </nav>
       <ContactModal
         showContactModal={showContactModal}

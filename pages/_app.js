@@ -9,7 +9,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Muhammad Mehdi Ali Portfolio</title>
+        <title>Muhammad Mehdi Ali</title>
         <meta
           name="description"
           content="Muhammad Mehdi Ali's portfolio website created using NextJS, TailwindCSS and Sanity.io"
