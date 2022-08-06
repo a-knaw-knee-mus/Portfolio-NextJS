@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 export default function Footer() {
   return (
     <>
-      <footer className="m-auto max-w-xs flex justify-around py-5 font-overpass text-xs sm:text-sm text-center">
+      <footer className="m-auto max-w-[240px] flex justify-around py-5 font-overpass text-xs sm:text-sm text-center">
         <a
           target="_blank"
           href="https://github.com/a-knaw-knee-mus"
