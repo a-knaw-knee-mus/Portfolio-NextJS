@@ -1,46 +1,31 @@
-import { useState, useEffect } from "react";
-import router from "next/router";
 import { Icon } from "@iconify/react";
-import ReactTooltip from "react-tooltip";
 
 export default function Footer() {
-  const [isMounted, setIsMounted] = useState(false); // Need this for the react-tooltip
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
   return (
     <>
-      <footer className="max-w-sm m-auto flex justify-around pt-5 pb-8">
+      <footer className="m-auto max-w-xs flex justify-around py-5 font-overpass text-xs sm:text-sm text-center">
         <a
           target="_blank"
           href="https://github.com/a-knaw-knee-mus"
           rel="noopener noreferrer"
-          data-tip="Github"
+          className="group"
         >
-          <Icon icon="akar-icons:github-fill" width="40" />
+          <Icon className="mx-auto"  icon="akar-icons:github-fill" width="40" />
+          <p className="sm:opacity-0 sm:group-hover:opacity-100 transition-all">Github</p>
         </a>
         <a
           target="_blank"
           href="https://www.linkedin.com/in/muhammad-mehdi-ali-8bb5491b6/"
           rel="noopener noreferrer"
-          data-tip="Linkedin"
+          className="group"
         >
-          <Icon icon="akar-icons:linkedin-box-fill" width="40" />
+          <Icon className="mx-auto" icon="akar-icons:linkedin-box-fill" width="40" />
+          <p  className="sm:opacity-0 sm:group-hover:opacity-100 transition-all">Linkedin</p>
         </a>
-        <a href="mailto:m30ali@ryerson.ca" data-tip="Email">
-          <Icon icon="ic:baseline-email" width="40" />
+        <a href="mailto:m30ali@ryerson.ca" className="group">
+          <Icon className="mx-auto"  icon="ic:baseline-email" width="40" />
+          <p  className="sm:opacity-0 sm:group-hover:opacity-100 transition-all">Email</p>
         </a>
-        {isMounted && (
-          <ReactTooltip
-            textColor="black"
-            backgroundColor="transparent"
-            place="bottom"
-            effect="solid"
-            offset={{ top: 15 }}
-          />
-        )}
       </footer>
     </>
   );

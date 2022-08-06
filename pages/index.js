@@ -1,27 +1,17 @@
 import Image from "next/image";
 import getHomeContent from "../util/getHomeContent";
 import { Icon } from "@iconify/react";
-import { useState, useEffect } from "react";
-import ReactTooltip from "react-tooltip";
 import getSanityImage from "../util/getSanityImage";
 import { PortableText } from "@portabletext/react";
 
 export default function Home({
   fullName,
-  firstName,
-  imageUrl,
   resumeUrl,
   bio,
   image,
 }) {
-  const [isMounted, setIsMounted] = useState(false); // Need this for the react-tooltip
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
   return (
-    <main className="text-center">
+    <main className="text-center font-overpass">
       <h1>Homepage</h1>
       <h1>{fullName}</h1>
       <Image
@@ -35,18 +25,10 @@ export default function Home({
         <PortableText value={bio}/>
       </div>
       <div className="w-11 m-auto">
-        <a target="_blank" href={resumeUrl} rel="noopener noreferrer">
-          <Icon className="m-auto mb-4" icon="carbon:document-pdf" width="40" data-tip="Resume"/>
+        <a className="group text-xs sm:text-sm text-center" target="_blank" href={resumeUrl} rel="noopener noreferrer">
+          <Icon className="ml-[4px]" icon="carbon:document-pdf" width="40" data-tip="Resume"/>
+          <p className="sm:opacity-0 sm:group-hover:opacity-100 transition-all">Resume</p>
         </a>
-        {isMounted && (
-          <ReactTooltip
-            textColor="black"
-            backgroundColor="transparent"
-            place="bottom"
-            effect="solid"
-            offset={{ top: 15 }}
-          />
-        )}
       </div>
     </main>
   );

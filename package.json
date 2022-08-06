@@ -16,8 +16,7 @@
     "@sanity/image-url": "^1.0.1",
     "next": "12.2.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-tooltip": "^4.2.21"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@iconify/react": "^3.2.2",
