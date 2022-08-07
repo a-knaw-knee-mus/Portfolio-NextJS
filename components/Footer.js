@@ -1,30 +1,41 @@
 import { Icon } from "@iconify/react";
+import HoverIcon from "./HoverIcon";
+import { showNotification } from "@mantine/notifications";
 
 export default function Footer() {
   return (
     <>
-      <footer className="m-auto max-w-[240px] flex justify-around py-5 font-overpass text-xs sm:text-sm text-center">
-        <a
-          target="_blank"
+      <footer className="m-auto max-w-[240px] flex justify-around py-5">
+        <HoverIcon
+          name="Github"
+          iconName="akar-icons:github-fill"
           href="https://github.com/a-knaw-knee-mus"
-          rel="noopener noreferrer"
-          className="group"
-        >
-          <Icon className="mx-auto"  icon="akar-icons:github-fill" width="40" />
-          <p className="sm:opacity-0 sm:group-hover:opacity-100 transition-all">Github</p>
-        </a>
-        <a
-          target="_blank"
+        />
+        <HoverIcon
+          name="Linkedin"
+          iconName="akar-icons:linkedin-box-fill"
           href="https://www.linkedin.com/in/muhammad-mehdi-ali-8bb5491b6/"
-          rel="noopener noreferrer"
-          className="group"
+        />
+        <HoverIcon
+          name="Email"
+          iconName="ic:baseline-email"
+          href="mailto:m30ali@ryerson.ca"
+        />
+        <a
+          className="group font-overpass text-xs sm:text-sm text-center"
+          onClick={() => {
+            navigator.clipboard.writeText("a.knaw.knee.mus#6284");
+            showNotification({
+              color: "indigo",
+              title: "Copied to clipboard!",
+              message: "a.knaw.knee.mus#6284"
+            });
+          }}
         >
-          <Icon className="mx-auto" icon="akar-icons:linkedin-box-fill" width="40" />
-          <p  className="sm:opacity-0 sm:group-hover:opacity-100 transition-all">Linkedin</p>
-        </a>
-        <a href="mailto:m30ali@ryerson.ca" className="group">
-          <Icon className="mx-auto"  icon="ic:baseline-email" width="40" />
-          <p  className="sm:opacity-0 sm:group-hover:opacity-100 transition-all">Email</p>
+          <Icon className="mx-auto" icon="akar-icons:discord-fill" width="40" />
+          <p className="sm:opacity-0 sm:group-hover:opacity-100 transition-all">
+            Discord
+          </p>
         </a>
       </footer>
     </>

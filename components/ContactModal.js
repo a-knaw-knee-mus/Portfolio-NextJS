@@ -45,6 +45,7 @@ export default function ContactModal({
     .then(
       (res) => {
         showNotification({
+          color: "green",
           title: "Thank you for your message",
           message: "I'll respond as soon as possible!",
         });

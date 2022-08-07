@@ -3,6 +3,7 @@ import getHomeContent from "../util/getHomeContent";
 import { Icon } from "@iconify/react";
 import getSanityImage from "../util/getSanityImage";
 import { PortableText } from "@portabletext/react";
+import HoverIcon from "../components/HoverIcon";
 
 const components = {
   block: {
@@ -31,10 +32,7 @@ export default function Home({
         <PortableText components={components} value={bio}/>
       </div>
       <div className="w-11 m-auto mt-5">
-        <a className="group text-xs sm:text-sm text-center" target="_blank" href={resumeUrl} rel="noopener noreferrer">
-          <Icon className="ml-[4px]" icon="carbon:document-pdf" width="40"/>
-          <p className="sm:opacity-0 sm:group-hover:opacity-100 transition-all">Resume</p>
-        </a>
+        <HoverIcon name="Resume" href={resumeUrl} iconName="carbon:document-pdf" />
       </div>
     </main>
   );
