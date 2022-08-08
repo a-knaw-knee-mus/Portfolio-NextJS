@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="max-w-2xl px- m-auto mt-3 text-xl sm:text-2xl font-overpass">
+      <nav className="max-w-2xl m-auto mt-3 text-xl sm:text-2xl font-overpass">
         <div className="mx-4 flex justify-between border-b">
         <h1 className="cursor-pointer font-extrabold sm:hover:scale-[1.15] transition-all" onClick={() => router.push("/")}>
           Muhammad
