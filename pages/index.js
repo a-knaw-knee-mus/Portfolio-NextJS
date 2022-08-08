@@ -1,6 +1,5 @@
 import Image from "next/image";
 import getHomeContent from "../util/getHomeContent";
-import { Icon } from "@iconify/react";
 import getSanityImage from "../util/getSanityImage";
 import { PortableText } from "@portabletext/react";
 import HoverIcon from "../components/HoverIcon";
@@ -12,7 +11,6 @@ const components = {
 }
 
 export default function Home({
-  fullName,
   resumeUrl,
   bio,
   image,
