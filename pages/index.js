@@ -16,7 +16,7 @@ export default function Home({
   image,
 }) {
   return (
-    <main className="text-center font-overpass mt-5 max-w-2xl mx-auto px-5">
+    <main className="font-overpass mt-5 max-w-2xl mx-auto px-5">
       <div className="m-auto flex rounded-full border-double border-4 w-[120px]">
         <Image
           className="rounded-full"
