@@ -8,7 +8,11 @@ import getSanityImage from "../../util/getSanityImage";
 
 const components = {
   listItem: {
-    bullet: ({ children }) => <li className="text-sm sm:text-base transition-all font-overpass">• {children}</li>,
+    bullet: ({ children }) => (
+      <li className="text-sm sm:text-base transition-all font-overpass dark:text-gray-400">
+        • {children}
+      </li>
+    ),
   },
 };
 
@@ -26,17 +30,20 @@ export default function Projects({ posts }) {
           })
           .map((post) => {
             return (
-              <div className="mx-auto mt-3 m-3 shadow-xl relative rounded-b-md" key={post._id}>
+              <div
+                className="mx-auto mt-3 m-3 shadow-xl relative rounded-b-sm text-black dark:shadow-blue-900 dark:shadow-lg"
+                key={post._id}
+              >
                 <div className="flex cursor-pointer group">
                   <h1
                     onClick={() => router.push(`/projects/${post.slug}`)}
                     className="text-lg font-bold absolute transition-all z-40 px-3 pt-3 pb-2 bg-slate-50 bg-opacity-60 font-overpass
-                                rounded-br-md rounded-tl-sm sm:text-2xl sm:group-hover:text-3xl sm:group-hover:bg-opacity-100"
+                                rounded-br-sm rounded-tl-sm sm:text-2xl sm:group-hover:text-3xl sm:group-hover:bg-opacity-100"
                   >
                     {post.title}
                   </h1>
                   <Image
-                    className="rounded-t-md"
+                    className="rounded-t-sm"
                     onClick={() => router.push(`/projects/${post.slug}`)}
                     src={getSanityImage(post.mainImage).url()}
                     alt="project preview"
@@ -45,7 +52,7 @@ export default function Projects({ posts }) {
                   />
                   <div
                     className="transition-all flex absolute top-0 right-0 bg-slate-50 bg-opacity-50 
-                                    rounded-bl-md rounded-tr-sm md:group-hover:bg-opacity-100"
+                                    rounded-bl-sm rounded-tr-sm md:group-hover:bg-opacity-100"
                   >
                     <a
                       target="_blank"
@@ -74,24 +81,12 @@ export default function Projects({ posts }) {
                   </div>
                 </div>
                 <div className="max-w-xl">
-                  <Accordion
-                    variant="filled"
-                    styles={{
-                      item: {
-                        borderRadius: '0px',
-                        borderBottomLeftRadius: '6px',
-                        borderBottomRightRadius: '6px',
-                        '&[data-active]': {
-                          borderRadius: '0px',
-                          borderBottomLeftRadius: '6px',
-                          borderBottomRightRadius: '6px',
-                        },
-                      },
-                    }}
-                  >
+                  <Accordion variant="filled">
                     <Accordion.Item value={post.summary} className="mt-0">
-                      <Accordion.Control className="text-sm sm:text-base transition-all font-overpass pt-[17px]">{post.summary}</Accordion.Control>
-                      <Accordion.Panel>
+                      <Accordion.Control className="text-sm sm:text-base transition-all font-overpass pt-[17px] dark:bg-darkblue dark:text-white">
+                        {post.summary}
+                      </Accordion.Control>
+                      <Accordion.Panel className="dark:bg-darkblue rounded-b-sm">
                         <PortableText
                           value={post.body}
                           components={components}

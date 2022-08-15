@@ -6,7 +6,7 @@ import getSanityImage from "../../util/getSanityImage";
 
 const components = {
   listItem: {
-    bullet: ({ children }) => <li className="md:text-lg transition-all font-overpass">• {children}</li>,
+    bullet: ({ children }) => <li className="md:text-lg transition-all font-overpass dark:text-gray-400">• {children}</li>,
   },
 };
 
@@ -61,7 +61,7 @@ export default function Project({
             width={912}
           />
         </div>
-        <div className="max-w-[912px] m-auto text-left shadow-xl p-4 rounded-b-md">
+        <div className="max-w-[912px] m-auto text-left shadow-xl p-4 rounded-b-md dark:shadow-blue-900 dark:shadow-lg">
           <p className="transition-all font-semibold text-lg md:text-2xl my-2 font-overpass">{summary}</p>
           <PortableText value={body} components={components} />
         </div>
