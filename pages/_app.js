@@ -35,9 +35,7 @@ export default function MyApp({ Component, pageProps }) {
         <NotificationsProvider>
           <div className={`${isDarkMode && "dark"}`}>
             {isMounted && (
-              <div
-                className={`min-h-screen transition-all dark:bg-darkblue dark:text-white`}
-              >
+              <div className={`min-h-screen transition-all dark:bg-darkblue dark:text-white`}>
                 <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
                 <Component {...pageProps} />
                 <Footer />
