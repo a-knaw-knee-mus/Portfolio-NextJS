@@ -30,7 +30,7 @@ export default function Home({
         <PortableText components={components} value={bio}/>
       </div>
       <div className="w-11 m-auto mt-5">
-        <HoverIcon name="Resume" href={resumeUrl} iconName="carbon:document-pdf" />
+        <HoverIcon name="Resume" href={resumeUrl} iconName="bi:file-earmark-pdf" />
       </div>
     </main>
   );
