@@ -31,7 +31,7 @@ export default function MyApp({ Component, pageProps }) {
         <meta name="theme-color" content="#228be6" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MantineProvider>
+      <MantineProvider theme={{ colorScheme: isDarkMode ? 'dark' : 'light' }}>
         <NotificationsProvider>
           <div className={`${isDarkMode && "dark"}`}>
             {isMounted && (

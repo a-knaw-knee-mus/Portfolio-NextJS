@@ -6,7 +6,7 @@ import HoverIcon from "../components/HoverIcon";
 
 const components = {
   block: {
-    normal: ({children}) => <p className="mt-6 text-sm sm:text-base md:text-lg font-medium">{children}</p>
+    normal: ({children}) => <p className="mt-6 text-sm sm:text-base md:text-lg font-medium transition-all">{children}</p>
   }
 }
 
