@@ -30,6 +30,7 @@ export default function MyApp({ Component, pageProps }) {
         <meta name="author" content="Muhammad Mehdi Ali" />
         <meta name="theme-color" content="#228be6" />
         <link rel="icon" href="/favicon.ico" />
+        <meta name="google-site-verification" content="q_fdLOOl9EydiXNKJePmXERYBWFEbH6H5K4IoXxE9KA" />
       </Head>
       <MantineProvider theme={{ colorScheme: isDarkMode ? 'dark' : 'light' }}>
         <NotificationsProvider>
