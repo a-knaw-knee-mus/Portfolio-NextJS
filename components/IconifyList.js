@@ -17,7 +17,7 @@ export default function IconifyList({ listNamePlural, listNameSingular, listItem
         .map((listItem, index) => {
           return (
             <div
-              className="mr-3 mt-3 flex items-center cursor-pointer"
+              className="mr-3 mt-3 flex items-center cursor-pointer sm:hover:scale-125 transition-all"
               key={index}
               onClick={() => {
                 showNotification({

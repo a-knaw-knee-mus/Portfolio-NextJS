@@ -58,7 +58,7 @@ export default function Home({
           target="_blank"
           href={resumeUrl}
           rel="noopener noreferrer"
-          className="text-xs sm:text-sm text-center"
+          className="text-xs sm:text-sm text-center sm:hover:scale-125 transition-all"
         >
           <Icon icon="bi:file-earmark-pdf" width={25} />
         </a>
