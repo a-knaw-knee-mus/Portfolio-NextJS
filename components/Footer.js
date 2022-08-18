@@ -22,7 +22,7 @@ export default function Footer() {
           href="mailto:m30ali@ryerson.ca"
         />
         <a
-          className="group font-overpass text-xs sm:text-sm text-center"
+          className="group font-overpass text-xs sm:text-sm text-center cursor-pointer"
           onClick={() => {
             navigator.clipboard.writeText("a.knaw.knee.mus#6284");
             showNotification({
