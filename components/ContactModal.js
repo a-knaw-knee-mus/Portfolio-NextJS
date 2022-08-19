@@ -93,7 +93,7 @@ export default function ContactModal({
         onChange={(e) =>
           dispatch({ type: "UPDATE_MESSAGE", payload: e.target.value })
         }
-        label="Subject"
+        label="Message"
         placeholder="Include your email if you would like a reply"
         autosize
         minRows={2}
