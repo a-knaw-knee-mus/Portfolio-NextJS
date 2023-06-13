@@ -24,11 +24,11 @@ export default function Footer() {
         <a
           className="group font-overpass text-xs sm:text-sm text-center cursor-pointer"
           onClick={() => {
-            navigator.clipboard.writeText("a.knaw.knee.mus#6284");
+            navigator.clipboard.writeText("a.knaw.knee.mus");
             showNotification({
               color: "indigo",
               title: "Copied to clipboard!",
-              message: "a.knaw.knee.mus#6284"
+              message: "a.knaw.knee.mus"
             });
           }}
         >
