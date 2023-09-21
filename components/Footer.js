@@ -14,12 +14,12 @@ export default function Footer() {
         <HoverIcon
           name="Linkedin"
           iconName="akar-icons:linkedin-box-fill"
-          href="https://www.linkedin.com/in/muhammad-mehdi-ali-8bb5491b6/"
+          href="https://www.linkedin.com/in/muhammad-mehdi-ali/"
         />
         <HoverIcon
           name="Email"
           iconName="ic:baseline-email"
-          href="mailto:m30ali@ryerson.ca"
+          href="mailto:m30ali@torontmu.ca"
         />
         <a
           className="group font-overpass text-xs sm:text-sm text-center cursor-pointer"
