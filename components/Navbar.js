@@ -1,11 +1,13 @@
-import useRouter from "next/router";
+"use client"; 
+
 import { useState } from "react";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import ContactModal from "./ContactModal";
+import { useRouter } from 'next/navigation'
 
 export default function Navbar({ isDarkMode, setIsDarkMode }) {
   const [showContactModal, setShowContactModal] = useState(false);
-  const router = useRouter;
+  const router = useRouter();
 
   return (
     <>

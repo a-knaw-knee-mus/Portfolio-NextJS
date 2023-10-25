@@ -1,3 +1,5 @@
+"use client";
+
 import { showNotification } from "@mantine/notifications";
 import { Icon } from "@iconify/react";
 

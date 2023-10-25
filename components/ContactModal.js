@@ -1,3 +1,5 @@
+"use client";
+
 import { Button, Modal, Textarea, TextInput } from "@mantine/core";
 import { useReducer } from "react";
 import emailjs from "@emailjs/browser"

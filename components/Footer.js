@@ -1,3 +1,5 @@
+"use client";
+
 import { Icon } from "@iconify/react";
 import HoverIcon from "./HoverIcon";
 import { showNotification } from "@mantine/notifications";

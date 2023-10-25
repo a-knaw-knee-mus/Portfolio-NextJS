@@ -1,3 +1,5 @@
+"use client";
+
 import { Icon } from "@iconify/react";
 
 // Creating Iconify Icons that show text on hover
