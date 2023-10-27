@@ -5,11 +5,14 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { MantineProvider } from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import Cursor from "../components/Cursor";
+import Cursor2 from "../components/Cursor2";
 
 export default function RootLayout({ children }) {
     const [isMounted, setIsMounted] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(false);
+    const stickyRef = useRef(null);
 
     useEffect(() => {
         setIsDarkMode(
@@ -21,6 +24,8 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body>
+                <Cursor2 isDarkMode={isDarkMode} />
+                {/* <Cursor isDarkMode={isDarkMode} stickyRef={stickyRef} /> */}
                 <MantineProvider
                     theme={{ colorScheme: isDarkMode ? "dark" : "light" }}
                 >
@@ -35,6 +40,7 @@ export default function RootLayout({ children }) {
                                     <Navbar
                                         isDarkMode={isDarkMode}
                                         setIsDarkMode={setIsDarkMode}
+                                        ref={stickyRef}
                                     />
                                     {children}
                                     <Footer />
@@ -43,6 +49,7 @@ export default function RootLayout({ children }) {
                         </div>
                     </NotificationsProvider>
                 </MantineProvider>
+                <Cursor2 isDarkMode={isDarkMode} />
             </body>
         </html>
     );

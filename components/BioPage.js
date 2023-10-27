@@ -5,6 +5,7 @@ import IconifyList from "./IconifyList";
 import { Icon } from "@iconify/react";
 import { PortableText } from "@portabletext/react";
 import getSanityImage from "../util/getSanityImage";
+import Magnetic from "./Magnetic";
 
 const components = {
     block: {
@@ -20,7 +21,7 @@ export default function BioPage({ homeContent, languages, technologies }) {
     return <main className="font-overpass mt-5 max-w-2xl mx-auto px-5">
     <div className="m-auto flex rounded-full border-double border-4 w-[120px]">
         <Image
-            className="rounded-full"
+            className="rounded-full z-10"
             src={getSanityImage(homeContent.image)
                 .width(120)
                 .height(120)
@@ -29,6 +30,7 @@ export default function BioPage({ homeContent, languages, technologies }) {
             alt="project preview"
             height={120}
             width={120}
+            priority={true}
         />
     </div>
     <div>
@@ -57,8 +59,10 @@ export default function BioPage({ homeContent, languages, technologies }) {
             href={homeContent.resumeUrl}
             rel="noopener noreferrer"
             className="text-xs sm:text-sm text-center sm:hover:scale-125 transition-all"
-        >
-            <Icon icon="bi:file-earmark-pdf" width={25} />
+        >   
+            <Magnetic>
+                <Icon icon="bi:file-earmark-pdf" width={25} />
+            </Magnetic>
         </a>
     </div>
 </main>

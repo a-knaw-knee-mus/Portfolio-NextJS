@@ -2,6 +2,7 @@
 
 import { showNotification } from "@mantine/notifications";
 import { Icon } from "@iconify/react";
+import Magnetic from "./Magnetic";
 
 //  List of iconify icons used for my skills on the homepage
 export default function IconifyList({ listNamePlural, listNameSingular, listItems }) {
@@ -29,7 +30,9 @@ export default function IconifyList({ listNamePlural, listNameSingular, listItem
                 });
               }}
             >
-              <Icon icon={listItem.iconifyName} width={25} />
+              <Magnetic>
+                <Icon icon={listItem.iconifyName} width={25} />
+              </Magnetic>
             </div>
           );
         })}
