@@ -1,4 +1,4 @@
-import ExpandedProjectCard from "../../../components/ExpandedProjectCard";
+import ExpandedProjectCard from "../../../components/ClientSlugPage";
 import getProjects from "../../../util/getProjects"
 
 export default async function ProjectPage({ params: { slug } }) {

@@ -1,7 +1,7 @@
 import getHomeContent from "../util/getHomeContent";
 import getLanguages from "../util/getLanguages";
 import getTechnologies from "../util/getTechnologies";
-import BioPage from "../components/BioPage";
+import ClientHomePage from "../components/ClientHomePage";
 
 export const metadata = {
     title: "Muhammad Mehdi Ali",
@@ -26,6 +26,6 @@ export default async function Page() {
     const technologies = await getTechnologies();
 
     return (
-        <BioPage homeContent={homeContent} languages={languages} technologies={technologies} />
+        <ClientHomePage homeContent={homeContent} languages={languages} technologies={technologies} />
     );
 }
