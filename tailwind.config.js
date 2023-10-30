@@ -15,5 +15,5 @@ module.exports = {
       'overpass': ['Overpass', 'Arial'],
     }
   },
-  plugins: [require('tailwind-scrollbar'),],
+  plugins: [],
 }
