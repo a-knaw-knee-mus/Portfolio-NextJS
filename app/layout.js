@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
     const [isMounted, setIsMounted] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(false);
     const ref = useRef(null);
-    const mouse = useMouse(ref, {enterDelay: 100, leaveDelay: 100})
+    const mouse = useMouse(ref, {enterDelay: 100, leaveDelay: 100, fps: 60})
     const [cursorText, setCursorText] = useCursorTextAtom()
     const [cursorVariant, setCursorVariant] = useCursorVariantAtom()
 

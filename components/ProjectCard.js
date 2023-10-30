@@ -101,11 +101,11 @@ export default function ProjectCard({ post, projectEnter, projectLeave }) {
             </div>
             <motion.div layoutId={`${post._id}-message`} className="max-w-xl">
                 <Accordion variant="filled">
-                    <Accordion.Item value={post.summary} className="mt-0">
-                        <Accordion.Control className="text-sm rounded-b-lg sm:text-base transition-all font-overpass pt-[17px] dark:bg-darkblue dark:text-white">
+                    <Accordion.Item value={post.summary} className="mt-0 rounded-b-lg">
+                        <Accordion.Control className="text-sm rounded-b-lg sm:text-base transition-all font-overpass pt-[17px] dark:bg-darkblue bg-[#dfdbdb] dark:text-white">
                             {post.summary}
                         </Accordion.Control>
-                        <Accordion.Panel className="dark:bg-darkblue rounded-b-lg -mt-2">
+                        <Accordion.Panel className="dark:bg-darkblue bg-[#dfdbdb] rounded-b-lg -mt-2">
                             <PortableText
                                 value={post.body}
                                 components={components}

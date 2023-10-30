@@ -22,7 +22,7 @@ export default function ClientProjectsPage({ projects }) {
                 variants={container}
                 initial="hidden"
                 animate="visible"
-                className="grid lg:grid-cols-2 max-w-7xl mx-auto gap-5 px-5 pt-5"
+                className="grid lg:grid-cols-2 max-w-7xl mx-auto gap-5 px-5 pt-5 items-start"
             >
                 {projects
                     .sort((a, b) => {

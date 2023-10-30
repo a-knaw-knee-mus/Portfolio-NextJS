@@ -23,7 +23,7 @@ export default function Footer() {
                     iconName="ic:baseline-email"
                     href="mailto:m30ali@torontmu.ca"
                 />
-                <a
+                <div
                     className="group font-overpass text-xs sm:text-sm text-center cursor-pointer"
                     onClick={() => {
                         navigator.clipboard.writeText("a.knaw.knee.mus");
@@ -35,14 +35,14 @@ export default function Footer() {
                     }}
                 >
                     <Icon
-                        className="mx-auto"
+                        className="mx-auto pointer-events-none"
                         icon="akar-icons:discord-fill"
                         width="40"
                     />
                     <p className="sm:opacity-0 sm:group-hover:opacity-100 transition-all">
                         Discord
                     </p>
-                </a>
+                </div>
             </footer>
         </>
     );
