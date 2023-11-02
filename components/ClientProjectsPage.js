@@ -3,6 +3,7 @@
 import { motion, useAnimation, useInView } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import { useEffect, useRef } from "react";
+import ScrollIcon from "./ScrollIcon";
 
 const container = {
     hidden: { opacity: 0, scale: 0, transition: { duration: 0 } },
@@ -31,14 +32,14 @@ export default function ClientProjectsPage({ projects }) {
     }, [controls, isInView]);
 
     return (
-        <>
+        <div className="relative">
             <div id="projects" className="block w-full h-20 overflow-hidden" />
             <div ref={ref}>
                 <motion.div
                     variants={container}
                     initial="hidden"
                     animate={controls}
-                    className="grid lg:grid-cols-2 max-w-7xl mx-auto gap-5 px-5 items-start"
+                    className="grid lg:grid-cols-2 max-w-7xl mx-auto gap-5 px-5 items-start pb-10"
                 >
                     {projects
                         .sort((a, b) => {
@@ -51,6 +52,6 @@ export default function ClientProjectsPage({ projects }) {
                         })}
                 </motion.div>
             </div>
-        </>
+        </div>
     );
 }

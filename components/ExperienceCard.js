@@ -2,19 +2,16 @@
 
 import { motion } from "framer-motion";
 import Blob from "./Blob";
+import ScrollIcon from "./ScrollIcon";
 
 const JobCard = ({ company, position, date, description }) => {
     return (
         <motion.li
             variants={listItemVariants}
-            className="mb-7 ml-6 flex items-start"
+            className="mb-7 ml-6 flex items-start pr-4"
         >
             <span className="w-16 h-16 bg-blue-300 rounded-full ring-8 ring-lightgrey dark:ring-darkblue dark:bg-blue-900">
-                <img
-                    className="w-10 h-10 mx-3 my-3"
-                    src=""
-                    alt=""
-                />
+                <img className="w-10 h-10 mx-3 my-3" src="" alt="" />
             </span>
             <div className="flex-1 ml-5">
                 <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
@@ -79,43 +76,47 @@ const timelineVariants = {
 
 const ExperienceCard = () => {
     return (
-        <>
-        <div id="experience" className="block w-full h-20 overflow-hidden" />
-        <div className="h-screen justify-center align-middle items-center flex relative overflow-x-hidden">
-            <Blob />
-            <motion.div className="max-w-7xl mx-auto relative z-0 my-auto">
-                <motion.div
-                    variants={timelineVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    className="absolute left-[56px] border-l-2 h-full border-gray-500"
-                />
-                <motion.ol
-                    className="relative"
-                    variants={listVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                >
-                    <JobCard
-                        company={"AMD"}
-                        position={"SOC Design for Test Engineer Intern"}
-                        description={[
-                            "- Get access to over 20+ pages including a dashboard layout, charts kanban board, calendar, and pre-order E-commerce & Marketing pages.",
-                            "- Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.",
-                        ]}
+        <div className="relative">
+            <div
+                id="experience"
+                className="block w-full h-20 overflow-hidden"
+            />
+            <div className="h-screen justify-center align-middle items-center flex relative overflow-x-hidden">
+                <Blob />
+                <motion.div className="max-w-7xl mx-auto relative z-0 my-auto">
+                    <motion.div
+                        variants={timelineVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        className="absolute left-[56px] border-l-2 h-full border-gray-500"
                     />
-                    <JobCard
-                        company={"TD Bank"}
-                        position={"SWE Intern"}
-                        description={[
-                            "- Get access to over 20+ pages including a dashboard layout, charts kanban board, calendar, and pre-order E-commerce & Marketing pages.",
-                            "- Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.",
-                        ]}
-                    />
-                </motion.ol>
-            </motion.div>
+                    <motion.ol
+                        className="relative"
+                        variants={listVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                    >
+                        <JobCard
+                            company={"AMD"}
+                            position={"SOC Design for Test Engineer Intern"}
+                            description={[
+                                "- Get access to over 20+ pages including a dashboard layout, charts kanban board, calendar, and pre-order E-commerce & Marketing pages.",
+                                "- Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.",
+                            ]}
+                        />
+                        <JobCard
+                            company={"TD Bank"}
+                            position={"SWE Intern"}
+                            description={[
+                                "- Get access to over 20+ pages including a dashboard layout, charts kanban board, calendar, and pre-order E-commerce & Marketing pages.",
+                                "- Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.",
+                            ]}
+                        />
+                    </motion.ol>
+                </motion.div>
             </div>
-        </>
+            <ScrollIcon location={"projects"} />
+        </div>
     );
 };
 

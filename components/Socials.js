@@ -10,7 +10,7 @@ export default function Socials() {
                 target="_blank"
                 href="https://github.com/a-knaw-knee-mus"
                 rel="noopener noreferrer"
-                className="group font-overpass text-xs sm:text-sm text-center inline-block"
+                className="group font-overpass text-xs sm:text-sm text-center inline-block sm:hover:scale-[1.15] transition-all"
             >
                 <Icon
                     className="mx-auto pointer-events-none"
@@ -22,7 +22,7 @@ export default function Socials() {
                 target="_blank"
                 href="https://www.linkedin.com/in/muhammad-mehdi-ali/"
                 rel="noopener noreferrer"
-                className="group font-overpass text-xs sm:text-sm text-center inline-block"
+                className="group font-overpass text-xs sm:text-sm text-center inline-block sm:hover:scale-[1.15] transition-all"
             >
                 <Icon
                     className="mx-auto pointer-events-none"
@@ -34,7 +34,7 @@ export default function Socials() {
                 target="_blank"
                 href="mailto:m30ali@torontmu.ca"
                 rel="noopener noreferrer"
-                className="group font-overpass text-xs sm:text-sm text-center inline-block"
+                className="group font-overpass text-xs sm:text-sm text-center inline-block sm:hover:scale-[1.15] transition-all"
             >
                 <Icon
                     className="mx-auto pointer-events-none"
@@ -43,7 +43,7 @@ export default function Socials() {
                 />
             </a>
             <div
-                className="group font-overpass text-xs sm:text-sm text-center cursor-pointer"
+                className="group font-overpass text-xs sm:text-sm text-center cursor-pointer sm:hover:scale-[1.15] transition-all"
                 onClick={() => {
                     navigator.clipboard.writeText("a.knaw.knee.mus");
                     showNotification({

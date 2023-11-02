@@ -28,7 +28,7 @@ export default function Navbar() {
                         </h1>
 
                         <ul className="font-semibold flex">
-                            <li className="cursor-pointer mr-4 transition-all">
+                            <li className="cursor-pointer mr-4 transition-all sm:hover:scale-[1.15]">
                                 <Link
                                     to="experience"
                                     smooth={true}
@@ -45,7 +45,7 @@ export default function Navbar() {
                                     </h1>
                                 </Link>
                             </li>
-                            <li className="cursor-pointer mr-4 transition-all">
+                            <li className="cursor-pointer mr-4 transition-all sm:hover:scale-[1.15]">
                                 <Link to="projects" smooth={true}>
                                     <h1 className="hidden sm:inline pointer-events-none sm:pointer-events-auto">
                                         Projects
@@ -61,7 +61,7 @@ export default function Navbar() {
                                 </Link>
                             </li>
                             <li
-                                className="cursor-pointer transition-all"
+                                className="cursor-pointer transition-all sm:hover:scale-[1.15]"
                                 onClick={() => {
                                     setShowContactModal(true);
                                 }}

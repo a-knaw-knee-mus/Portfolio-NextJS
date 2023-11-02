@@ -8,6 +8,7 @@ import getSanityImage from "../util/getSanityImage";
 import Magnetic from "./Magnetic";
 import { useCursorTextAtom, useCursorVariantAtom } from "./Jotai";
 import Blob from "./Blob";
+import ScrollIcon from "./ScrollIcon";
 
 const components = {
     block: {
@@ -28,7 +29,7 @@ export default function ClientHomePage({
     const [cursorVariant, setCursorVariant] = useCursorVariantAtom();
 
     return (
-        <main className="font-overpass max-w-2xl mx-auto px-5 h-screen">
+        <main className="font-overpass max-w-2xl mx-auto px-5 h-screen relative overflow-hidden">
             <div className="m-auto flex rounded-full border-double border-4 w-[120px]">
                 <Image
                     className="rounded-full"
@@ -81,6 +82,7 @@ export default function ClientHomePage({
                     />
                 </a>
             </div>
+            <ScrollIcon location={"experience"} />
         </main>
     );
 }

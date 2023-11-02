@@ -36,7 +36,7 @@ export default function ProjectCard({ post, projectEnter, projectLeave }) {
         <motion.div
             whileHover={{scale: 1.05}}
             variants={item}
-            className="mx-auto mt-3 m-3 shadow-xl relative rounded-lg text-black dark:shadow-blue-900 dark:shadow-lg"
+            className="mx-auto m-3 shadow-xl relative rounded-lg text-black dark:shadow-blue-900 dark:shadow-lg"
             key={post._id}
             onMouseEnter={projectEnter}
             onMouseLeave={projectLeave}
