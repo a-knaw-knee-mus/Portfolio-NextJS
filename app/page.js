@@ -2,6 +2,7 @@ import getHomeContent from "../util/getHomeContent";
 import getLanguages from "../util/getLanguages";
 import getTechnologies from "../util/getTechnologies";
 import getProjects from "../util/getProjects";
+import getExperiences from "../util/getExperiences";
 import ClientHomePage from "../components/ClientHomePage";
 import ExperienceCard from "../components/ExperienceCard";
 import ClientProjectsPage from "../components/ClientProjectsPage";
@@ -29,6 +30,8 @@ export default async function Page() {
     const languages = await getLanguages();
     const technologies = await getTechnologies();
     const projects = await getProjects();
+    const experiences = await getExperiences()
+    console.log(experiences)
 
     return (
         <>
@@ -38,7 +41,7 @@ export default async function Page() {
                 languages={languages}
                 technologies={technologies}
             />
-            <ExperienceCard />
+            <ExperienceCard experiences={experiences} />
             <ClientProjectsPage projects={projects} />
         </>
     );

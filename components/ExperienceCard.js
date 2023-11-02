@@ -3,39 +3,45 @@
 import { motion } from "framer-motion";
 import Blob from "./Blob";
 import ScrollIcon from "./ScrollIcon";
+import { PortableText } from "@portabletext/react";
+import Image from "next/image";
+import getSanityImage from "../util/getSanityImage";
 
-const JobCard = ({ company, position, date, description }) => {
+const components = {
+    listItem: {
+        bullet: ({ children }) => (
+            <li className="text-sm sm:text-base transition-all font-overpass">
+                • {children}
+            </li>
+        ),
+    },
+};
+
+const JobCard = ({ experience }) => {
     return (
         <motion.li
             variants={listItemVariants}
             className="mb-7 ml-6 flex items-start pr-4"
         >
             <span className="w-16 h-16 bg-blue-300 rounded-full ring-8 ring-lightgrey dark:ring-darkblue dark:bg-blue-900">
-                <img className="w-10 h-10 mx-3 my-3" src="" alt="" />
+                <Image className="w-10 h-10 mx-3 my-3 rounded-lg" src={getSanityImage(experience.companyLogo).width(40).height(40).url()} alt='company logo' height={40} width={40} />
             </span>
             <div className="flex-1 ml-5">
                 <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
-                    {`${company} `}
-                    <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 ml-3">
-                        Current
-                    </span>
+                    {`${experience.company} `}
+                    {experience.isCurrentPosition && (
+                        <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 ml-3">
+                            Current
+                        </span>
+                    )}
                 </h3>
                 <h4 className="flex items-center mb-1 text-md text-gray-900 dark:text-white italic">
-                    {position}
+                    {experience.position}
                 </h4>
-                <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                    {date}
+                <time className="block mb-2 text-md font-normal leading-none text-gray-400 dark:text-gray-500">
+                    {experience.startDate} - {experience.endDate}
                 </time>
-                {description.map((point, index) => {
-                    return (
-                        <p
-                            key={index}
-                            className="mt-4 text-base font-normal text-gray-500 dark:text-gray-400"
-                        >
-                            {point}
-                        </p>
-                    );
-                })}
+                <PortableText value={experience.body} components={components} />
             </div>
         </motion.li>
     );
@@ -74,7 +80,7 @@ const timelineVariants = {
     },
 };
 
-const ExperienceCard = () => {
+const ExperienceCard = ({ experiences }) => {
     return (
         <div className="relative">
             <div
@@ -96,22 +102,14 @@ const ExperienceCard = () => {
                         initial="hidden"
                         whileInView="visible"
                     >
-                        <JobCard
-                            company={"AMD"}
-                            position={"SOC Design for Test Engineer Intern"}
-                            description={[
-                                "- Get access to over 20+ pages including a dashboard layout, charts kanban board, calendar, and pre-order E-commerce & Marketing pages.",
-                                "- Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.",
-                            ]}
-                        />
-                        <JobCard
-                            company={"TD Bank"}
-                            position={"SWE Intern"}
-                            description={[
-                                "- Get access to over 20+ pages including a dashboard layout, charts kanban board, calendar, and pre-order E-commerce & Marketing pages.",
-                                "- Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.",
-                            ]}
-                        />
+                        {experiences.map((experience) => {
+                            return (
+                                <JobCard
+                                    key={experience._id}
+                                    experience={experience}
+                                />
+                            );
+                        })}
                     </motion.ol>
                 </motion.div>
             </div>
