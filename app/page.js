@@ -1,7 +1,11 @@
 import getHomeContent from "../util/getHomeContent";
 import getLanguages from "../util/getLanguages";
 import getTechnologies from "../util/getTechnologies";
+import getProjects from "../util/getProjects";
 import ClientHomePage from "../components/ClientHomePage";
+import ExperienceCard from "../components/ExperienceCard";
+import ClientProjectsPage from "../components/ClientProjectsPage";
+import Navbar from "../components/Navbar";
 
 export const metadata = {
     title: "Muhammad Mehdi Ali",
@@ -24,8 +28,18 @@ export default async function Page() {
     const homeContent = await getHomeContent();
     const languages = await getLanguages();
     const technologies = await getTechnologies();
+    const projects = await getProjects();
 
     return (
-        <ClientHomePage homeContent={homeContent} languages={languages} technologies={technologies} />
+        <>
+            <Navbar />
+            <ClientHomePage
+                homeContent={homeContent}
+                languages={languages}
+                technologies={technologies}
+            />
+            <ExperienceCard />
+            <ClientProjectsPage projects={projects} />
+        </>
     );
 }

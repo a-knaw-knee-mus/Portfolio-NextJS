@@ -40,6 +40,7 @@ export default function ProjectCard({ post, projectEnter, projectLeave }) {
             key={post._id}
             onMouseEnter={projectEnter}
             onMouseLeave={projectLeave}
+            id={post.slug}
         >
             <div className="flex group">
                 <motion.h1

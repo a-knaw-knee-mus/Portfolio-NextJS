@@ -2,7 +2,6 @@
 
 import { showNotification } from "@mantine/notifications";
 import { Icon } from "@iconify/react";
-import Magnetic from "./Magnetic";
 import { useCursorTextAtom, useCursorVariantAtom } from "./Jotai";
 
 //  List of iconify icons used for my skills on the homepage
@@ -15,17 +14,16 @@ export default function IconifyList({
     const [cursorVariant, setCursorVariant] = useCursorVariantAtom();
 
     return (
-        <div className="flex flex-wrap transition-all">
+        <div className="flex transition-all w-full">
             <h2 className="font-extrabold mt-3 mr-3 text-sm sm:text-base md:text-lg pt-[4px] sm:pt-1 md:pt-[3px]">
                 {listNamePlural}:
             </h2>
             <div
-                className="flex"
+                className="flex flex-wrap"
                 onMouseEnter={() => {
                     setCursorVariant("icon");
                 }}
                 onMouseLeave={() => {
-                    setCursorText("");
                     setCursorVariant("default");
                 }}
             >

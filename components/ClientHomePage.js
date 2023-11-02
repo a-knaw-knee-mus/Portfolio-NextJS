@@ -7,6 +7,7 @@ import { PortableText } from "@portabletext/react";
 import getSanityImage from "../util/getSanityImage";
 import Magnetic from "./Magnetic";
 import { useCursorTextAtom, useCursorVariantAtom } from "./Jotai";
+import Blob from "./Blob";
 
 const components = {
     block: {
@@ -27,10 +28,10 @@ export default function ClientHomePage({
     const [cursorVariant, setCursorVariant] = useCursorVariantAtom();
 
     return (
-        <main className="font-overpass mt-5 max-w-2xl mx-auto px-5">
+        <main className="font-overpass max-w-2xl mx-auto px-5 h-screen">
             <div className="m-auto flex rounded-full border-double border-4 w-[120px]">
                 <Image
-                    className="rounded-full z-50"
+                    className="rounded-full"
                     src={getSanityImage(homeContent.image)
                         .width(120)
                         .height(120)

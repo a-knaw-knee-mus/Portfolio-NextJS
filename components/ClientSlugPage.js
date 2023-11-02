@@ -18,7 +18,7 @@ const components = {
     },
 };
 
-export default function ExpandedProjectCard({ project }) {
+export default function ClientSlugPage({ project }) {
     const router = useRouter();
     const [cursorText, setCursorText] = useCursorTextAtom();
     const [cursorVariant, setCursorVariant] = useCursorVariantAtom();
@@ -35,7 +35,7 @@ export default function ExpandedProjectCard({ project }) {
                 setCursorVariant("default");
             }}
             onClick={() => {
-                router.push("/projects");
+                router.push(`/#projects`);
                 setCursorText("");
                 setCursorVariant("default");
             }}
