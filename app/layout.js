@@ -91,7 +91,6 @@ export default function RootLayout({ children }) {
                                     id="home"
                                 >
                                     {children}
-                                    {/* <Footer /> */}
                                     <motion.div
                                         variants={variants}
                                         className="fixed z-50 flex content-center justify-center top-0 left-0 w-[10px] h-[10px] rounded-full pointer-events-none text-center invisible sm:visible"
