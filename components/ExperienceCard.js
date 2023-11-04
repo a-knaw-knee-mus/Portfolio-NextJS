@@ -18,13 +18,28 @@ const components = {
 };
 
 const JobCard = ({ experience }) => {
+    const options = { year: 'numeric', month: 'long' };   
+    const startDate = new Date(experience.startDate)
+    const formattedStartDate = startDate.toLocaleString(undefined, options);
+    const endDate = new Date(experience.endDate)
+    const formattedEndDate = endDate.toLocaleString(undefined, options);
+
     return (
         <motion.li
             variants={listItemVariants}
             className="mb-7 ml-6 flex items-start pr-4"
         >
             <span className="w-16 h-16 bg-blue-300 rounded-full ring-8 ring-lightgrey dark:ring-darkblue dark:bg-blue-900">
-                <Image className="w-10 h-10 mx-3 my-3 rounded-lg" src={getSanityImage(experience.companyLogo).width(40).height(40).url()} alt='company logo' height={40} width={40} />
+                <Image
+                    className="w-12 h-12 mx-2 my-2"
+                    src={getSanityImage(experience.companyLogo)
+                        .width(120)
+                        .height(120)
+                        .url()}
+                    alt="company logo"
+                    height={160}
+                    width={160}
+                />
             </span>
             <div className="flex-1 ml-5">
                 <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
@@ -38,8 +53,8 @@ const JobCard = ({ experience }) => {
                 <h4 className="flex items-center mb-1 text-md text-gray-900 dark:text-white italic">
                     {experience.position}
                 </h4>
-                <time className="block mb-2 text-md font-normal leading-none text-gray-400 dark:text-gray-500">
-                    {experience.startDate} - {experience.endDate}
+                <time className="block mb-2 text-md font-normal leading-none text-gray-600 dark:text-gray-200">
+                    {formattedStartDate} - {formattedEndDate}
                 </time>
                 <PortableText value={experience.body} components={components} />
             </div>
@@ -87,9 +102,9 @@ const ExperienceCard = ({ experiences }) => {
                 id="experience"
                 className="block w-full h-20 overflow-hidden"
             />
-            <div className="h-screen justify-center align-middle items-center flex relative overflow-x-hidden">
+            <div className="min-h-screen justify-center align-middle items-center flex relative overflow-x-hidden">
                 <Blob />
-                <motion.div className="max-w-7xl mx-auto relative z-0 my-auto">
+                <motion.div className="scale-75 sm:scale-100 max-w-7xl mx-auto relative z-0 my-auto">
                     <motion.div
                         variants={timelineVariants}
                         initial="hidden"
@@ -102,14 +117,20 @@ const ExperienceCard = ({ experiences }) => {
                         initial="hidden"
                         whileInView="visible"
                     >
-                        {experiences.map((experience) => {
-                            return (
-                                <JobCard
-                                    key={experience._id}
-                                    experience={experience}
-                                />
-                            );
-                        })}
+                        {experiences
+                            .sort((a, b) => {
+                                if (a.indexNumber > b.indexNumber) return 1;
+                                if (a.indexNumber < b.indexNumber) return -1;
+                                return 0;
+                            })
+                            .map((experience) => {
+                                return (
+                                    <JobCard
+                                        key={experience._id}
+                                        experience={experience}
+                                    />
+                                );
+                            })}
                     </motion.ol>
                 </motion.div>
             </div>

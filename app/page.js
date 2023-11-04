@@ -31,7 +31,6 @@ export default async function Page() {
     const technologies = await getTechnologies();
     const projects = await getProjects();
     const experiences = await getExperiences()
-    console.log(experiences)
 
     return (
         <>
