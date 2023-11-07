@@ -5,10 +5,9 @@ import IconifyList from "./IconifyList";
 import { Icon } from "@iconify/react";
 import { PortableText } from "@portabletext/react";
 import getSanityImage from "../util/getSanityImage";
-import Magnetic from "./Magnetic";
 import { useCursorTextAtom, useCursorVariantAtom } from "./Jotai";
-import Blob from "./Blob";
 import ScrollIcon from "./ScrollIcon";
+import { useSectionInView } from "../util/useSectionInView";
 
 const components = {
     block: {
@@ -27,9 +26,10 @@ export default function ClientHomePage({
 }) {
     const [cursorText, setCursorText] = useCursorTextAtom();
     const [cursorVariant, setCursorVariant] = useCursorVariantAtom();
+    const { ref } = useSectionInView("home", 0.5)
 
     return (
-        <main className="font-overpass max-w-2xl mx-auto px-5 h-screen relative overflow-hidden">
+        <main ref={ref} id="home" className="pt-28 font-overpass max-w-2xl mx-auto px-5 h-screen relative overflow-hidden">
             <div className="m-auto flex rounded-full border-double border-4 w-[120px]">
                 <Image
                     className="rounded-full"

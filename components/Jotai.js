@@ -7,6 +7,8 @@ const store = createStore();
 const cursorTextAtom = atom("");
 const cursorVariantAtom = atom("default");
 const darkModeAtom = atom(true)
+const activeSectionAtom = atom("home")
+const timeOfLastClick = atom(0)
 
 export const JotaiProvider = ({ children }) => {
     <Provider store={store}>{children}</Provider>;
@@ -22,4 +24,12 @@ export const useCursorVariantAtom = () => {
 
 export const useDarkModeAtom = () => {
     return useAtom(darkModeAtom)
+}
+
+export const useActiveSectionAtom = () => {
+    return useAtom(activeSectionAtom)
+}
+
+export const useTimeOfLastClickAtom = () => {
+    return useAtom(timeOfLastClick)
 }

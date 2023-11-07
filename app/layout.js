@@ -1,17 +1,17 @@
 "use client";
 
 import "../styles/globals.css";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { MantineProvider } from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
 import { useEffect, useState, useRef } from "react";
 import useMouse from "@react-hook/mouse-position";
 import { motion } from "framer-motion";
-import { useCursorTextAtom, useCursorVariantAtom, useDarkModeAtom } from "../components/Jotai";
+import {
+    useCursorTextAtom,
+    useCursorVariantAtom,
+    useDarkModeAtom,
+} from "../components/Jotai";
 import { Icon } from "@iconify/react";
-import Socials from "../components/Socials";
-import { Link } from "react-scroll";
 
 export default function RootLayout({ children }) {
     const [isMounted, setIsMounted] = useState(false);
@@ -48,7 +48,6 @@ export default function RootLayout({ children }) {
         },
         project: {
             opacity: 1,
-            // backgroundColor: "rgba(255, 255, 255, 0.6)",
             backgroundColor: "white",
             color: "#0f172a",
             height: 40,
@@ -69,12 +68,6 @@ export default function RootLayout({ children }) {
         },
     };
 
-    const spring = {
-        type: "spring",
-        stiffness: 500,
-        damping: 28,
-    };
-
     return (
         <html lang="en">
             <body ref={ref}>
@@ -86,9 +79,8 @@ export default function RootLayout({ children }) {
                             <div className={`${isDarkMode && "dark"}`}>
                                 <div
                                     className={
-                                        "min-h-screen transition-all dark:bg-darkblue dark:text-white bg-lightgrey text-black"
+                                        "transition-all dark:bg-darkblue dark:text-white bg-lightgrey text-black"
                                     }
-                                    id="home"
                                 >
                                     {children}
                                     <motion.div

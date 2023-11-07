@@ -25,7 +25,7 @@ export default function ClientSlugPage({ project }) {
 
     return (
         <div
-            className="cursor-pointer sm:cursor-none"
+            className="cursor-pointer sm:cursor-none min-h-screen"
             onMouseEnter={() => {
                 setCursorText("carbon:previous-filled");
                 setCursorVariant("project");

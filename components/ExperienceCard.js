@@ -6,22 +6,59 @@ import ScrollIcon from "./ScrollIcon";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import getSanityImage from "../util/getSanityImage";
+import { useSectionInView } from "../util/useSectionInView";
 
-const components = {
-    listItem: {
-        bullet: ({ children }) => (
-            <li className="text-sm sm:text-base transition-all font-overpass">
-                • {children}
-            </li>
-        ),
-    },
+const ExperienceCard = ({ experiences }) => {
+    const { ref } = useSectionInView("experience", 0.5);
+
+    return (
+        <div className="relative">
+            <div
+                ref={ref}
+                id="experience"
+                className="min-h-screen pt-24 justify-center align-middle items-center flex relative overflow-x-hidden"
+            >
+                <Blob />
+                <motion.div className="scale-75 sm:scale-100 max-w-7xl mx-auto relative z-0 my-auto">
+                    <motion.div
+                        variants={timelineVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        className="absolute left-[56px] border-l-2 h-full border-gray-500"
+                    />
+                    <motion.ol
+                        className="relative"
+                        variants={listVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                    >
+                        {experiences
+                            .sort((a, b) => {
+                                if (a.indexNumber > b.indexNumber) return 1;
+                                if (a.indexNumber < b.indexNumber) return -1;
+                                return 0;
+                            })
+                            .map((experience) => {
+                                return (
+                                    <JobCard
+                                        key={experience._id}
+                                        experience={experience}
+                                    />
+                                );
+                            })}
+                    </motion.ol>
+                </motion.div>
+            </div>
+            <ScrollIcon location={"projects"} />
+        </div>
+    );
 };
 
 const JobCard = ({ experience }) => {
-    const options = { year: 'numeric', month: 'long' };   
-    const startDate = new Date(experience.startDate)
+    const options = { year: "numeric", month: "long" };
+    const startDate = new Date(experience.startDate);
     const formattedStartDate = startDate.toLocaleString(undefined, options);
-    const endDate = new Date(experience.endDate)
+    const endDate = new Date(experience.endDate);
     const formattedEndDate = endDate.toLocaleString(undefined, options);
 
     return (
@@ -62,6 +99,16 @@ const JobCard = ({ experience }) => {
     );
 };
 
+const components = {
+    listItem: {
+        bullet: ({ children }) => (
+            <li className="text-sm sm:text-base transition-all font-overpass">
+                • {children}
+            </li>
+        ),
+    },
+};
+
 const listVariants = {
     hidden: { transition: { duration: 0 } },
     visible: {
@@ -93,50 +140,6 @@ const timelineVariants = {
         height: "100%",
         transition: { duration: 3 },
     },
-};
-
-const ExperienceCard = ({ experiences }) => {
-    return (
-        <div className="relative">
-            <div
-                id="experience"
-                className="block w-full h-20 overflow-hidden"
-            />
-            <div className="min-h-screen justify-center align-middle items-center flex relative overflow-x-hidden">
-                <Blob />
-                <motion.div className="scale-75 sm:scale-100 max-w-7xl mx-auto relative z-0 my-auto">
-                    <motion.div
-                        variants={timelineVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        className="absolute left-[56px] border-l-2 h-full border-gray-500"
-                    />
-                    <motion.ol
-                        className="relative"
-                        variants={listVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                    >
-                        {experiences
-                            .sort((a, b) => {
-                                if (a.indexNumber > b.indexNumber) return 1;
-                                if (a.indexNumber < b.indexNumber) return -1;
-                                return 0;
-                            })
-                            .map((experience) => {
-                                return (
-                                    <JobCard
-                                        key={experience._id}
-                                        experience={experience}
-                                    />
-                                );
-                            })}
-                    </motion.ol>
-                </motion.div>
-            </div>
-            <ScrollIcon location={"projects"} />
-        </div>
-    );
 };
 
 export default ExperienceCard;
