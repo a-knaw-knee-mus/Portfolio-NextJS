@@ -7,6 +7,7 @@ import ClientHomePage from "../components/ClientHomePage";
 import ExperienceCard from "../components/ExperienceCard";
 import ClientProjectsPage from "../components/ClientProjectsPage";
 import Navbar from "../components/Navbar";
+import Tech from "../components/Tech";
 
 export const metadata = {
     title: "Muhammad Mehdi Ali",
@@ -40,6 +41,7 @@ export default async function Page() {
                 languages={languages}
                 technologies={technologies}
             />
+            <Tech technologies={technologies} />
             <ExperienceCard experiences={experiences} />
             <ClientProjectsPage projects={projects} />
         </>

@@ -49,7 +49,7 @@ const ExperienceCard = ({ experiences }) => {
                     </motion.ol>
                 </motion.div>
             </div>
-            <ScrollIcon location={"projects"} />
+            {/* <ScrollIcon location={"projects"} /> */}
         </div>
     );
 };

@@ -82,7 +82,7 @@ export default function ClientHomePage({
                     />
                 </a>
             </div>
-            <ScrollIcon location={"experience"} />
+            {/* <ScrollIcon location={"experience"} /> */}
         </main>
     );
 }
