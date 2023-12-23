@@ -40,7 +40,6 @@ export default async function Page() {
                 languages={languages}
                 technologies={technologies}
             />
-            <Tech technologies={technologies} />
             <ExperienceCard experiences={experiences} />
             <ClientProjectsPage projects={projects} />
         </>
