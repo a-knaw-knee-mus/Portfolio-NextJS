@@ -32,7 +32,7 @@ export default function Socials() {
             </a>
             <a
                 target="_blank"
-                href="mailto:m30ali@torontmu.ca"
+                href="mailto:m30ali@torontomu.ca"
                 rel="noopener noreferrer"
                 className="group font-overpass text-xs sm:text-sm text-center inline-block sm:hover:scale-[1.15] transition-all"
             >
