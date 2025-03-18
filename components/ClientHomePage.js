@@ -6,8 +6,8 @@ import { Icon } from "@iconify/react";
 import { PortableText } from "@portabletext/react";
 import getSanityImage from "../util/getSanityImage";
 import { useCursorTextAtom, useCursorVariantAtom } from "./Jotai";
-import ScrollIcon from "./ScrollIcon";
 import { useSectionInView } from "../util/useSectionInView";
+import GithubHeatmap from "./GithubHeatmap";
 
 const components = {
     block: {
@@ -82,7 +82,9 @@ export default function ClientHomePage({
                     />
                 </a>
             </div>
-            {/* <ScrollIcon location={"experience"} /> */}
+            <div className="mt-5">
+                <GithubHeatmap />
+            </div>
         </main>
     );
 }
