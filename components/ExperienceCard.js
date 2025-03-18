@@ -59,7 +59,7 @@ const JobCard = ({ experience }) => {
     const startDate = new Date(experience.startDate);
     const formattedStartDate = startDate.toLocaleString(undefined, options);
     const endDate = new Date(experience.endDate);
-    const formattedEndDate = endDate.toLocaleString(undefined, options);
+    const formattedEndDate = experience.isCurrentPosition ? 'Current' : endDate.toLocaleString(undefined, options);
 
     return (
         <motion.li
